@@ -1,0 +1,18 @@
+<%- include('../partials/head', {title}) %>
+<body>
+  <h1><%= title %></h1>
+  <a href="/categories/new"><button>New category</button></a>
+  <a href="/"><button>Home</button></a>
+  <ul>
+    <% categories.map((category) => { %>
+    <li>
+      <p><%= category.title %></p>
+      <a href="/categories/<%= category.id %>"><button>Edit 📝</button></a>
+      <form action="/categories/<%= category.id %>/delete" method="POST">
+        <button type="submit">Delete 🗑️</button>
+      </form>
+    </li>
+    <% }) %>
+  </ul>
+</body>
+<%- include('../partials/footer') %>

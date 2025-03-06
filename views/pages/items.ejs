@@ -1,0 +1,23 @@
+<body>
+  <h1><%= title %></h1>
+  <a href="/items/new"><button>New item</button></a>
+  <a href="/categories"><button>Categories</button></a>
+  <ul>
+    <% items.map((item) => { %>
+    <li>
+      <h3><%= item.title %></h3>
+      <p>Description: <%= item.description %></p>
+      <p>Price: $<%= item.price %></p>
+      <ul>
+        <% item.categories.map((category) => { %>
+        <li><%= category.title %></li>
+        <% }) %>
+      </ul>
+      <a href="/items/<%= item.id %>"><button>Edit</button></a>
+      <form action="/items/<%= item.id %>/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+    <% }) %>
+  </ul>
+</body>

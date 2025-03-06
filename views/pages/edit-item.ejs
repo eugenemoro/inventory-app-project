@@ -1,0 +1,36 @@
+<%- include('../partials/head', {title}) %>
+<body>
+  <h1><%= title %></h1>
+  <form action='<%= title === 'New item' ? '/items/new' : '/items/' + item.id + '/update' %>' method="POST">
+    <div>
+      <label for="title">Title: </label>
+      <input type="text" name="title" id="title" value="<%= (title === 'New item') ? '' : locals.item.title %>" required>
+    </div>
+    <div>
+      <label for="description">Description: </label>
+      <textarea name="description" id="description"><%= (title === 'New item') ? '' : locals.item.description %></textarea>
+    </div>
+    <div>
+      <label for="price">Price: </label>
+      <input type="tel" name="price" id="price" value="<%= (title === 'New item') ? '' : locals.item.price %>" required>
+    </div>
+    <div>
+      <label for="categories">Categories: </label>
+      <ul name="categories" id="categories">
+        <% categories.map((category) => { %>
+          <li>
+            <%= category.title %>
+            <% if (!item.categories.find((cat) => cat.title === category.title)) {%>
+              <a href="/items/<%= item.id %>/add-category/<%= category.title %>">Add</a>
+            <% } else { %>
+              <a href="/items/<%= item.id %>/remove-category/<%= category.title %>">Remove</a>
+            <% } %>  
+          </li>
+        <% }) %>  
+      </ul>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+  <a href="/items"><button>Cancel</button></a>
+</body>
+<%- include('../partials/footer') %>

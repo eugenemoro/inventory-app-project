@@ -1,0 +1,11 @@
+<%- include('../partials/head', {title}) %>
+<body>
+  <h1><%= title %></h1>
+  <form action=<%= (title === 'New category') ? '/categories/new' : '/categories/' + locals.category.id + '/update' %> method="POST">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" value="<%= (title === 'New category') ? '' : locals.category.title %>" required>
+    <button type="submit">Save</button>
+    <a href="/"><button>Cancel</button></a>
+  </form>
+</body>
+<%- include('../partials/footer') %>

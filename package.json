@@ -1,0 +1,26 @@
+{
+  "name": "inventory-app-project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/eugenemoro/inventory-app-project#readme",
+  "bugs": {
+    "url": "https://github.com/eugenemoro/inventory-app-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugenemoro/inventory-app-project.git"
+  },
+  "license": "ISC",
+  "author": "Eugene Morozov",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  }
+}
